@@ -1,0 +1,128 @@
+/control/verbose 2
+/run/verbose 2
+#
+# Physics
+/sobp/phys/addPhysics emstandard_opt3
+/sobp/phys/addPhysics elastic
+/sobp/phys/addPhysics binary
+#/sobp/phys/addPhysics radioactive
+
+#/sobp/stepMax 1.0 mm
+
+########################################
+#
+# define scoring mesh
+#
+#/score/create/boxMesh boxMesh_1
+#/score/mesh/boxSize 2. 2. 20. cm
+
+/score/create/cylinderMesh cylMesh_1
+/score/mesh/cylinderSize 1.98 10. cm
+
+/score/mesh/nBin 1 200 1
+
+/score/quantity/energyDeposit eDep
+
+
+#
+/score/close
+#
+/score/list
+#
+########################################
+# Particle Source
+/gps/verbose 0 
+/gps/particle proton 
+/gps/direction 0. 0. 1.
+/gps/pos/type Beam
+/gps/pos/centre 0 0 -50.0 cm 
+/gps/pos/sigma_r 0.4 cm
+/gps/ene/type User
+/gps/ene/min 70 MeV
+/gps/ene/max 105 MeV
+/gps/hist/type energy
+/gps/hist/point 69.999
+/gps/hist/point  70   0.0475019592711
+/gps/hist/point  70.999   0.0
+/gps/hist/point  71   0.598678800321
+/gps/hist/point  71.999   0.0
+/gps/hist/point  72   0.377446952087
+/gps/hist/point  72.999   0.0
+/gps/hist/point  73   0.503171619783
+/gps/hist/point  73.999   0.0
+/gps/hist/point  74   0.452297381181
+/gps/hist/point  74.999   0.0
+/gps/hist/point  75   0.509335197659
+/gps/hist/point  75.999   0.0
+/gps/hist/point  76   0.487978639182
+/gps/hist/point  76.999   0.0
+/gps/hist/point  77   0.539013876785
+/gps/hist/point  77.999   0.0
+/gps/hist/point  78   0.556350973356
+/gps/hist/point  78.999   0.0
+/gps/hist/point  79   0.528885683744
+/gps/hist/point  79.999   0.0
+/gps/hist/point  80   0.605684566332
+/gps/hist/point  80.999   0.0
+/gps/hist/point  81   0.595424777598
+/gps/hist/point  81.999   0.0
+/gps/hist/point  82   0.604224972667
+/gps/hist/point  82.999   0.0
+/gps/hist/point  83   0.659860008241
+/gps/hist/point  83.999   0.0
+/gps/hist/point  84   0.608391776034
+/gps/hist/point  84.999   0.0
+/gps/hist/point  85   0.696490301201
+/gps/hist/point  85.999   0.0
+/gps/hist/point  86   0.746360591659
+/gps/hist/point  86.999   0.0
+/gps/hist/point  87   0.761385477721
+/gps/hist/point  87.999   0.0
+/gps/hist/point  88   0.77209528549
+/gps/hist/point  88.999   0.0
+/gps/hist/point  89   0.811327284541
+/gps/hist/point  89.999   0.0
+/gps/hist/point  90   0.869816889248
+/gps/hist/point  90.999   0.0
+/gps/hist/point  91   0.876315849103
+/gps/hist/point  91.999   0.0
+/gps/hist/point  92   0.986617048566
+/gps/hist/point  92.999   0.0
+/gps/hist/point  93   0.936683792123
+/gps/hist/point  93.999   0.0
+/gps/hist/point  94   1.13105590995
+/gps/hist/point  94.999   0.0
+/gps/hist/point  95   1.10367503344
+/gps/hist/point  95.999   0.0
+/gps/hist/point  96   1.24214976674
+/gps/hist/point  96.999   0.0
+/gps/hist/point  97   1.28836427225
+/gps/hist/point  97.999   0.0
+/gps/hist/point  98   1.43351610496
+/gps/hist/point  98.999   0.0
+/gps/hist/point  99   1.61200280356
+/gps/hist/point  99.999   0.0
+/gps/hist/point  100   1.62324624735
+/gps/hist/point  100.999   0.0
+/gps/hist/point  101   2.29344663097
+/gps/hist/point  101.999   0.0
+/gps/hist/point  102   1.64427067827
+/gps/hist/point  102.999   0.0
+/gps/hist/point  103   3.97416348728
+/gps/hist/point  103.999   0.0
+/gps/hist/point  104   0.896980114122
+/gps/hist/point  104.999   0.0
+/gps/hist/point  105   14.1329817603
+
+/run/initialize
+
+/run/beamOn 3000
+
+########################################
+#
+# Dump scores to a file
+#
+#/score/dumpQuantityToFile boxMesh_1 eDep eDep.txt
+/score/dumpQuantityToFile cylMesh_1 eDep SOBP-csv.txt
+
+
