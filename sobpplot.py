@@ -31,7 +31,7 @@ def sobpplot(fname):
     d = d[:141]
 
     pl.plot(x,d,linewidth=2)
-    pl.savefig('g4-ec2-sobp.png')
+    pl.savefig('sobp-demo.png')
 
 if __name__ == '__main__':
     import sys
