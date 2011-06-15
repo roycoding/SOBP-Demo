@@ -1,9 +1,24 @@
 SOBP-demo
 by Roy Keyes (roy.coding@gmail)
 
+------
+About:
+------
+
 SOBP-demo is a demo program that produces a spread-out Bragg peak from a proton beam in water. It is intended to be a very simple demo of Geant4 run on an Amazon EC2 server, displaying the result as a webpage, but can be run locally or on any server.
 
-Once compiled, the demo program should be called as:
+SOBP-Demo an be run on the public Geant4 AMI provided by the UNM PTG group for Amazon's EC2 service. Up to date version found here:
+
+http://www.cs.unm.edu/~compmed/PTG/cloud.html
+
+As of 15 June 2011: ami-50d62b39
+- python-matplotlib must be installed (after you update the package list).
+
+------
+Usage:
+------
+
+Once compiled with "make", the demo program should be called as:
 
 ./sobp-demo.sh
 
@@ -29,9 +44,10 @@ SOBP-demo was develeped on Geant4.9.3 and tested on Geant4.9.4.
 It also depends on Python and Matplotlib (Python plotting libary).
 
 
-
-
+-----
 Known issues (a.k.a. BUGS!!!)
+-----
+
 - The CSV output from command based scoring changed between 4.9.3 and 4.9.4, so this demo will break if you use it between those systems. You need to know which column will have the depth coordinated of the depth-dose curve:
     4.9.3: column 2
     4.9.4: column 1
